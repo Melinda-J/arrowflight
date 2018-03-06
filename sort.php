@@ -1,7 +1,5 @@
 <?php
 
-$arr = range(10, 0, -1);
-
 /**
  * 冒泡排序
  * @param  array   $arr  将要排序的数组
@@ -115,4 +113,3 @@ function quickSort($arr, $desc = false)
     }
     return array_merge($frontArr, array($base), $backArr);
 }
-print_r(quickSort($arr));

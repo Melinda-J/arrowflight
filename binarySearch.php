@@ -1,5 +1,4 @@
 <?php
-
 /**
  * 二分查找(非递归)
  * @param  mixed   $search 查找目标值

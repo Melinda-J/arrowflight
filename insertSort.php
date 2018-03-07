@@ -7,7 +7,7 @@
  */
 function insertSort($arr, $desc = false)
 {
-    if (!is_array($arr) || count($arr) == 0) {
+    if (!is_array($arr) || count($arr) <= 0) {
         return $arr;
     }
     // 外层循环，待插入元素$arr[$i]

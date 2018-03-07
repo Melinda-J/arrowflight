@@ -8,7 +8,7 @@
  */
 function bubbleSort($arr, $desc = false)
 {
-    if (!is_array($arr) || count($arr) == 0) {
+    if (!is_array($arr) || count($arr) <= 1) {
         return $arr;
     }
     // 外层循环，将剩余未排序数组元素中值最大的元素移至末位

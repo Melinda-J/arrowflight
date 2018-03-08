@@ -6,10 +6,10 @@
  */
 function shellSort(&$arr)
 {
-    if (!is_array($arr) || count($arr) <= 1) {
+    $size = count($arr);
+    if ($size <= 1) {
         return;
     }
-    $size = count($arr);
     // 将数组所有元素按步长$step进行分组，对每个分组分别排序
     $step = floor($size / 2);
     // 步长为1时，排序完成

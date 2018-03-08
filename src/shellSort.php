@@ -1,8 +1,8 @@
 <?php
 /**
  * 希尔排序
- * @param  array &$arr 要排序的数组
- * @return array       排序后的数组
+ * @param  array &$arr 待排序的数组
+ * @return
  */
 function shellSort(&$arr)
 {

@@ -6,7 +6,8 @@
  */
 function quickSort(&$arr)
 {
-    if (!is_array($arr) || count($arr) <= 1) {
+    $size = count($arr);
+    if ($size <= 1) {
         return;
     }
     // 以第一个元素为基准
@@ -14,7 +15,7 @@ function quickSort(&$arr)
     $frontArr = array();
     $backArr  = array();
     // 将剩余元素与基准元素进行比较，大于基准的元素和小于基准的元素分别存储再$backArr和$frontArr中
-    for ($i = 1, $size = count($arr); $i < $size; $i++) {
+    for ($i = 1; $i < $size; $i++) {
         if ($arr[$i] < $base) {
             $frontArr[] = $arr[$i];
         } else {

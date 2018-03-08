@@ -6,11 +6,12 @@
  */
 function selectSort(&$arr)
 {
-    if (!is_array($arr) || count($arr) <= 1) {
+    $size = count($arr);
+    if ($size <= 1) {
         return;
     }
     // 外层循环，假定元素$arr[$i]为最小元素
-    for ($i = 0, $size = count($arr); $i < $size - 1; $i++) {
+    for ($i = 0; $i < $size - 1; $i++) {
         // 保存最小元素索引到$p
         $p = $i;
         // 内层循环，将元素$arr[$j]与最小元素进行比较

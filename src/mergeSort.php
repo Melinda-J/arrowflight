@@ -6,10 +6,10 @@
  */
 function mergeSort(&$arr)
 {
-    if (!is_array($arr) || count($arr) <= 1) {
+    $size = count($arr);
+    if ($size <= 1) {
         return;
     }
-    $size = count($arr);
     // 将数组平均拆分成两组
     $middle   = floor($size / 2);
     $leftArr  = array_slice($arr, 0, $middle);

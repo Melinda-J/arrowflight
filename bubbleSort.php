@@ -1,14 +1,13 @@
 <?php
 /**
  * 冒泡排序
- * @param  array   $arr  将要排序的数组
- * @param  boolean $desc 是否倒序
- * @return array         排序后的数组
+ * @param  array &$arr 将要排序的数组
+ * @return array       排序后的数组
  */
-function bubbleSort($arr, $desc = false)
+function bubbleSort(&$arr)
 {
     if (!is_array($arr) || count($arr) <= 1) {
-        return $arr;
+        return;
     }
     // 外层循环，将剩余未排序数组元素中值最大的元素移至末位
     for ($i = 0, $size = count($arr); $i < $size - 1; $i++) {
@@ -21,8 +20,5 @@ function bubbleSort($arr, $desc = false)
             }
         }
     }
-    if ($desc) {
-        return array_reverse($arr);
-    }
-    return $arr;
+    return;
 }

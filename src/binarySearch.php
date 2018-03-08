@@ -9,7 +9,8 @@
  */
 function divideSearch($search, $arr, $start = null, $end = null)
 {
-    if (!is_array($arr) || count($arr) == 0) {
+    $size = count($arr);
+    if ($size == 0) {
         return -1;
     }
     // 起始查找位置
@@ -18,7 +19,7 @@ function divideSearch($search, $arr, $start = null, $end = null)
     }
     // 终止查找位置
     if (!isset($end)) {
-        $end = count($arr) - 1;
+        $end = $size - 1;
     }
     while ($end >= $start) {
         // 取数组中间元素索引
@@ -47,7 +48,8 @@ function divideSearch($search, $arr, $start = null, $end = null)
  */
 function halfSearch($search, $arr, $start = null, $end = null)
 {
-    if (!is_array($arr) || count($arr) == 0) {
+    $size = count($arr);
+    if ($size == 0) {
         return -1;
     }
     // 起始查找位置
@@ -56,7 +58,7 @@ function halfSearch($search, $arr, $start = null, $end = null)
     }
     // 终止查找位置
     if (!isset($end)) {
-        $end = count($arr) - 1;
+        $end = $size - 1;
     }
     if ($end < $start) {
         return -1;

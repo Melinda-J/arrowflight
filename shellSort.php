@@ -1,14 +1,13 @@
 <?php
 /**
  * 希尔排序
- * @param  array   $arr  要排序的数组
- * @param  boolean $desc 是否倒序
- * @return array         排序后的数组
+ * @param  array &$arr 要排序的数组
+ * @return array       排序后的数组
  */
-function shellSort($arr = array(), $desc = false)
+function shellSort(&$arr)
 {
     if (!is_array($arr) || count($arr) == 0) {
-        return $arr;
+        return;
     }
     $size = count($arr);
     // 将数组所有元素按步长$step进行分组，对每个分组分别排序
@@ -28,8 +27,5 @@ function shellSort($arr = array(), $desc = false)
         }
         $step = floor($step / 2);
     }
-    if ($desc) {
-        return array_reverse($arr);
-    }
-    return $arr;
+    return;
 }

@@ -1,14 +1,13 @@
 <?php
 /**
  * 快速排序
- * @param  array   $arr  将要排序的数组
- * @param  boolean $desc 是否倒序
- * @return array         排序后的数组
+ * @param  array &$arr 将要排序的数组
+ * @return array       排序后的数组
  */
-function quickSort($arr, $desc = false)
+function quickSort(&$arr)
 {
     if (!is_array($arr) || count($arr) <= 0) {
-        return $arr;
+        return;
     }
     // 以第一个元素为基准
     $base     = $arr[0];
@@ -23,12 +22,10 @@ function quickSort($arr, $desc = false)
         }
     }
     // 递归的对$frontArr和$backArr执行上述操作
-    $func     = __FUNCTION__;
-    $frontArr = $func($frontArr, $desc);
-    $backArr  = $func($backArr, $desc);
+    $func = __FUNCTION__;
+    $func($frontArr);
+    $func($backArr);
     // 合并数组
-    if ($desc) {
-        return array_merge($backArr, array($base), $frontArr);
-    }
-    return array_merge($frontArr, array($base), $backArr);
+    $arr = array_merge($frontArr, array($base), $backArr);
+    return;
 }

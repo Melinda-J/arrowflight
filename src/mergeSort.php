@@ -2,7 +2,7 @@
 /**
  * 归并排序
  * @param  array &$arr 待排序的数组
- * @return [type]       [description]
+ * @return
  */
 function mergeSort(&$arr)
 {

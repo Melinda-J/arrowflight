@@ -1,14 +1,13 @@
 <?php
 /**
  * 选择排序
- * @param  array   $arr  将要排序的数组
- * @param  boolean $desc 是否倒序
- * @return array         排序后的数组
+ * @param  array &$arr 将要排序的数组
+ * @return array       排序后的数组
  */
-function selectSort($arr, $desc = false)
+function selectSort(&$arr)
 {
     if (!is_array($arr) || count($arr) <= 0) {
-        return $arr;
+        return;
     }
     // 外层循环，假定元素$arr[$i]为最小元素
     for ($i = 0, $size = count($arr); $i < $size - 1; $i++) {
@@ -29,8 +28,5 @@ function selectSort($arr, $desc = false)
         $arr[$i] = $arr[$p];
         $arr[$p] = $tmp;
     }
-    if ($desc) {
-        return array_reverse($arr);
-    }
-    return $arr;
+    return;
 }

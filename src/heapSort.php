@@ -6,10 +6,10 @@
  */
 function heapSort(&$arr)
 {
-    if (!is_array($arr) || count($arr) <= 1) {
+    $size = count($arr);
+    if ($size <= 1) {
         return;
     }
-    $size = count($arr);
     for ($i = $size - 1; $i > 0; $i--) {
         // 堆中最后一个父元素的索引
         $lastParent = floor($size / 2) - 1;

@@ -1,14 +1,13 @@
 <?php
 /**
  * 插入排序
- * @param  array   $arr  将要排序的数组
- * @param  boolean $desc 是否倒序
- * @return array         排序后的数组
+ * @param  array &$arr 将要排序的数组
+ * @return array       排序后的数组
  */
-function insertSort($arr, $desc = false)
+function insertSort(&$arr)
 {
     if (!is_array($arr) || count($arr) <= 0) {
-        return $arr;
+        return;
     }
     // 外层循环，待插入元素$arr[$i]
     for ($i = 1, $size = count($arr); $i < $size; $i++) {
@@ -24,8 +23,5 @@ function insertSort($arr, $desc = false)
             $arr[$j]     = $tmp;
         }
     }
-    if ($desc) {
-        return array_reverse($arr);
-    }
-    return $arr;
+    return;
 }

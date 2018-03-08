@@ -1,14 +1,13 @@
 <?php
 /**
  * 堆排序
- * @param  array   $arr  待排序的数组
- * @param  boolean $desc 是否倒序
- * @return array         排序后的数组
+ * @param  array &$arr 待排序的数组
+ * @return array       排序后的数组
  */
-function heapSort($arr, $desc = false)
+function heapSort(&$arr)
 {
     if (!is_array($arr) || count($arr) <= 1) {
-        return $arr;
+        return;
     }
     $size = count($arr);
     for ($i = $size - 1; $i > 0; $i--) {
@@ -32,10 +31,7 @@ function heapSort($arr, $desc = false)
         swap($arr, 0, $i);
         $size--;
     }
-    if ($desc) {
-        return array_reverse($arr);
-    }
-    return $arr;
+    return;
 }
 
 /**

@@ -6,7 +6,7 @@
  */
 function quickSort(&$arr)
 {
-    if (!is_array($arr) || count($arr) <= 0) {
+    if (!is_array($arr) || count($arr) <= 1) {
         return;
     }
     // 以第一个元素为基准

@@ -14,7 +14,7 @@ function quickSort(&$arr)
     $base     = $arr[0];
     $frontArr = array();
     $backArr  = array();
-    // 将剩余元素与基准元素进行比较，大于基准的元素和小于基准的元素分别存储再$backArr和$frontArr中
+    // 将剩余元素与基准元素进行比较，大于基准的元素和小于基准的元素分别存储在$backArr和$frontArr中
     for ($i = 1; $i < $size; $i++) {
         if ($arr[$i] < $base) {
             $frontArr[] = $arr[$i];

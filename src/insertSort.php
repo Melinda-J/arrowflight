@@ -6,11 +6,12 @@
  */
 function insertSort(&$arr)
 {
-    if (!is_array($arr) || count($arr) <= 1) {
+    $size = count($arr);
+    if ($size <= 1) {
         return;
     }
     // 外层循环，待插入元素$arr[$i]
-    for ($i = 1, $size = count($arr); $i < $size; $i++) {
+    for ($i = 1; $i < $size; $i++) {
         // 待插入元素
         $tmp = $arr[$i];
         // 内层循环，待比较元素$arr[$j]

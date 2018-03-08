@@ -6,7 +6,7 @@
  */
 function shellSort(&$arr)
 {
-    if (!is_array($arr) || count($arr) == 0) {
+    if (!is_array($arr) || count($arr) <= 1) {
         return;
     }
     $size = count($arr);

@@ -6,7 +6,7 @@
  */
 function selectSort(&$arr)
 {
-    if (!is_array($arr) || count($arr) <= 0) {
+    if (!is_array($arr) || count($arr) <= 1) {
         return;
     }
     // 外层循环，假定元素$arr[$i]为最小元素

@@ -15,7 +15,7 @@ function shellSort(&$arr)
     // 步长为1时，排序完成
     while ($step >= 1) {
         // 对每个分组执行插入排序
-        for ($i = $step + 1; $i < $size; $i++) {
+        for ($i = $step; $i < $size; $i++) {
             for ($j = $i - $step; $j >= 0; $j -= $step) {
                 if ($arr[$j + $step] > $arr[$j]) {
                     break;
@@ -29,3 +29,7 @@ function shellSort(&$arr)
     }
     return;
 }
+
+$arr = array(5, 3, 2, 6, 7, 9, 10, 1, 8, 4);
+shellSort($arr);
+print_r($arr);

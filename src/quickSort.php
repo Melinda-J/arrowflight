@@ -30,3 +30,7 @@ function quickSort(&$arr)
     $arr = array_merge($frontArr, array($base), $backArr);
     return;
 }
+
+$arr = array(3, 1, 8, 7, 9, 2, 5, 6, 4, 10);
+quickSort($arr);
+print_r($arr);

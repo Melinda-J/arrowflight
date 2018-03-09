@@ -31,3 +31,7 @@ function selectSort(&$arr)
     }
     return;
 }
+
+$arr = array(4, 10, 5, 3, 9, 6, 1, 2, 8, 7);
+selectSort($arr);
+print_r($arr);

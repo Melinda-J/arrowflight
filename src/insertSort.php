@@ -27,6 +27,6 @@ function insertSort(&$arr)
     return;
 }
 
-$arr = array(7, 5, 3, 1, 6, 4, 9, 8, 10, 2);
+$arr = [7, 5, 3, 1, 6, 4, 9, 8, 10, 2];
 insertSort($arr);
 print_r($arr);

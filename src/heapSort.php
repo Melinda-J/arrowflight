@@ -48,6 +48,6 @@ function swap(&$arr, $index1, $index2)
     $arr[$index2] = $tmp;
 }
 
-$arr = array(7, 10, 4, 1, 2, 9, 6, 3, 5, 8);
+$arr = [7, 10, 4, 1, 2, 9, 6, 3, 5, 8];
 heapSort($arr);
 print_r($arr);

@@ -24,6 +24,6 @@ function bubbleSort(&$arr)
     return;
 }
 
-$arr = array(6, 8, 3, 4, 1, 2, 5, 9, 7, 10);
+$arr = [6, 8, 3, 4, 1, 2, 5, 9, 7, 10];
 bubbleSort($arr);
 print_r($arr);

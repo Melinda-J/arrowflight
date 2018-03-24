@@ -31,6 +31,6 @@ function quickSort(&$arr)
     return;
 }
 
-$arr = array(3, 1, 8, 7, 9, 2, 5, 6, 4, 10);
+$arr = [3, 1, 8, 7, 9, 2, 5, 6, 4, 10];
 quickSort($arr);
 print_r($arr);

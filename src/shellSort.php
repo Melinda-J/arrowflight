@@ -30,6 +30,6 @@ function shellSort(&$arr)
     return;
 }
 
-$arr = array(5, 3, 2, 6, 7, 9, 10, 1, 8, 4);
+$arr = [5, 3, 2, 6, 7, 9, 10, 1, 8, 4];
 shellSort($arr);
 print_r($arr);

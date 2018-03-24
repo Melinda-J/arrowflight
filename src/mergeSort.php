@@ -46,6 +46,6 @@ function mergeSort(&$arr)
     return;
 }
 
-$arr = array(10, 5, 6, 2, 7, 3, 9, 8, 4, 1);
+$arr = [10, 5, 6, 2, 7, 3, 9, 8, 4, 1];
 mergeSort($arr);
 print_r($arr);

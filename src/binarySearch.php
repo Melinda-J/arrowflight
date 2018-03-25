@@ -69,11 +69,11 @@ function halfSearch($search, $arr, $start = null, $end = null)
     if ($search > $arr[$middle]) {
         // 若目标值大于中间元素，向后查找
         $start = $middle + 1;
-        return $func($search, $arr, $start, $end);
+        return call_user_func_array($func, [$search, $arr, $start, $end]);
     } else if ($search < $arr[$middle]) {
         // 若目标值小于中间元素，向前查找
         $end = $middle - 1;
-        return $func($search, $arr, $start, $end);
+        return call_user_func_array($func, [$search, $arr, $start, $end]);
     } else {
         // 若目标值等于中间元素，返回中间元素索引
         return $middle;

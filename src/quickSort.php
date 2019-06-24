@@ -1,8 +1,8 @@
 <?php
 /**
  * 快速排序
- * @param  array &$arr 待排序的数组
- * @return
+ *
+ * @param array $arr 待排序的数组
  */
 function quickSort(&$arr)
 {
@@ -11,9 +11,9 @@ function quickSort(&$arr)
         return;
     }
     // 以第一个元素为基准
-    $base     = $arr[0];
-    $frontArr = array();
-    $backArr  = array();
+    $base = $arr[0];
+    $frontArr = [];
+    $backArr = [];
     // 将剩余元素与基准元素进行比较，大于基准的元素和小于基准的元素分别存储在$backArr和$frontArr中
     for ($i = 1; $i < $size; $i++) {
         if ($arr[$i] < $base) {
@@ -23,14 +23,8 @@ function quickSort(&$arr)
         }
     }
     // 递归的对$frontArr和$backArr执行上述操作
-    $func = __FUNCTION__;
-    $func($frontArr);
-    $func($backArr);
+    call_user_func_array(__FUNCTION__, [&$frontArr]);
+    call_user_func_array(__FUNCTION__, [&$backArr]);
     // 合并数组
-    $arr = array_merge($frontArr, array($base), $backArr);
-    return;
+    $arr = array_merge($frontArr, [$base], $backArr);
 }
-
-$arr = [3, 1, 8, 7, 9, 2, 5, 6, 4, 10];
-quickSort($arr);
-print_r($arr);

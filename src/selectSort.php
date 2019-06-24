@@ -1,15 +1,12 @@
 <?php
 /**
  * 选择排序
- * @param  array &$arr 待排序的数组
- * @return
+ *
+ * @param array $arr 待排序的数组
  */
 function selectSort(&$arr)
 {
     $size = count($arr);
-    if ($size <= 1) {
-        return;
-    }
     // 外层循环，假定元素$arr[$i]为最小元素
     for ($i = 0; $i < $size - 1; $i++) {
         // 保存最小元素索引到$p
@@ -22,16 +19,8 @@ function selectSort(&$arr)
             }
         }
         // 若假定最小元素索引不等于实际最小元素索引，交换两元素位置
-        if ($p == $i) {
-            continue;
+        if ($p != $i) {
+            list($arr[$i], $arr[$p]) = [$arr[$p], $arr[$i]];
         }
-        $tmp     = $arr[$i];
-        $arr[$i] = $arr[$p];
-        $arr[$p] = $tmp;
     }
-    return;
 }
-
-$arr = [4, 10, 5, 3, 9, 6, 1, 2, 8, 7];
-selectSort($arr);
-print_r($arr);

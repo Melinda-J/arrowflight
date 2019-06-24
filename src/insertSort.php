@@ -1,15 +1,12 @@
 <?php
 /**
  * 插入排序
- * @param  array &$arr 待排序的数组
- * @return
+ *
+ * @param array $arr 待排序的数组
  */
 function insertSort(&$arr)
 {
     $size = count($arr);
-    if ($size <= 1) {
-        return;
-    }
     // 外层循环，待插入元素$arr[$i]
     for ($i = 1; $i < $size; $i++) {
         // 待插入元素
@@ -21,12 +18,7 @@ function insertSort(&$arr)
                 break;
             }
             $arr[$j + 1] = $arr[$j];
-            $arr[$j]     = $tmp;
+            $arr[$j] = $tmp;
         }
     }
-    return;
 }
-
-$arr = [7, 5, 3, 1, 6, 4, 9, 8, 10, 2];
-insertSort($arr);
-print_r($arr);

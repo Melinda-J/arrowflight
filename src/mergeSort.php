@@ -1,51 +1,71 @@
 <?php
 /**
- * 归并排序
- * @param  array &$arr 待排序的数组
- * @return
+ * 归并排序（递归法）
+ *
+ * @param array $arr 待排序的数组
  */
-function mergeSort(&$arr)
+function mergeSortRecursive(&$arr)
 {
     $size = count($arr);
     if ($size <= 1) {
         return;
     }
     // 将数组平均拆分成两组
-    $middle   = floor($size / 2);
-    $leftArr  = array_slice($arr, 0, $middle);
+    $middle = $size >> 1;
+    $leftArr = array_slice($arr, 0, $middle);
     $rightArr = array_slice($arr, $middle);
-    $func     = __FUNCTION__;
-    $func($leftArr);
-    $func($rightArr);
-    // 若$leftArr末位元素小于$rightArr首位元素，直接合并两数组
-    if (end($leftArr) < $rightArr[0]) {
-        $arr = array_merge($leftArr, $rightArr);
-        return;
-    }
-    // 从两数组首位开始比较数组元素大小，较小元素存入$arr
-    $i   = $j   = 0;
-    $arr = array();
-    while ($i < count($leftArr) && $j < count($rightArr)) {
+    call_user_func_array(__FUNCTION__, [&$leftArr]);
+    call_user_func_array(__FUNCTION__, [&$rightArr]);
+    $i = $j = 0;
+    $leftArrSize = count($leftArr);
+    $rightArrSize = count($rightArr);
+    $tmp = [];
+    // 从两数组首位开始比较数组元素大小，较小元素存入$tmp
+    while ($i < $leftArrSize && $j < $rightArrSize) {
         if ($leftArr[$i] < $rightArr[$j]) {
-            $arr[] = $leftArr[$i];
-            $i++;
+            $tmp = $leftArr[$i++];
         } else {
-            $arr[] = $rightArr[$j];
-            $j++;
+            $tmp[] = $rightArr[$j++];
         }
     }
-    // 剩余元素直接存入$arr
-    while ($i < count($leftArr)) {
-        $arr[] = $leftArr[$i];
-        $i++;
+    // 剩余元素直接存入$tmp
+    while ($i < $leftArrSize) {
+        $tmp[] = $leftArr[$i++];
     }
-    while ($j < count($rightArr)) {
-        $arr[] = $rightArr[$j];
-        $j++;
+    while ($j < $rightArrSize) {
+        $tmp[] = $rightArrSize[$j++];
     }
-    return;
+    $arr = $tmp;
 }
 
-$arr = [10, 5, 6, 2, 7, 3, 9, 8, 4, 1];
-mergeSort($arr);
-print_r($arr);
+/**
+ * 归并排序（迭代法）
+ *
+ * @param array $arr 待排序的数组
+ */
+function mergeSort(&$arr)
+{
+    $size = count($arr);
+    $tmp = [];
+    for ($step = 1; $step < $size; $step += $step) {
+        // 对数组进行分组，每组长度为$step
+        // 相邻分组，两两一对进行排序，合并
+        for ($start = 0, $k = 0; $start < $size; $start += 2 * $step) {
+            $start1 = $start; // 左侧分组起始位置
+            $end1 = min($start + $step, $size);
+            $start2 = $end1; // 右侧分组起始位置
+            $end2 = min($start + 2 * $step, $size);
+            // 依次比较两分组元素
+            while ($start1 < $end1 && $start2 < $end2) {
+                $tmp[$k++] = $arr[$start1] < $arr[$start2] ? $arr[$start1++] : $arr[$start2++];
+            }
+            while ($start1 < $end1) {
+                $tmp[$k++] = $arr[$start1++];
+            }
+            while ($start2 < $end2) {
+                $tmp[$k++] = $arr[$start2++];
+            }
+        }
+        $arr = $tmp;
+    }
+}

@@ -1,12 +1,13 @@
 <?php
 /**
- * 二分查找(迭代法)
+ * 二分查找(迭代法).
  *
  * @param mixed $search 查找目标值
- * @param array $arr 待检索的数组
- * @param integer $start 起始查找位置
- * @param integer $end 终止查找位置
- * @return integer 目标值在待检索数组中的位置
+ * @param array $arr    待检索的数组
+ * @param int   $start  起始查找位置
+ * @param int   $end    终止查找位置
+ *
+ * @return int 目标值在待检索数组中的位置
  */
 function divideSearch($search, $arr, $start = null, $end = null)
 {
@@ -36,23 +37,24 @@ function divideSearch($search, $arr, $start = null, $end = null)
 }
 
 /**
- * 二分查找(递归法)
+ * 二分查找(递归法).
  *
  * @param mixed $search 查找的目标值
- * @param array $arr 待检索的数组
- * @param integer $start 起始查找位置
- * @param integer $end 终止查找位置
- * @return integer 目标值在待检所数组中的位置
+ * @param array $arr    待检索的数组
+ * @param int   $start  起始查找位置
+ * @param int   $end    终止查找位置
+ *
+ * @return int 目标值在待检所数组中的位置
  */
 function halfSearch($search, $arr, $start = null, $end = null)
 {
     $size = count($arr);
-    if ($size == 0) {
+    if (0 == $size) {
         return -1;
     }
     // 起始查找位置
     if (is_null($start)) {
-         $start = 0;
+        $start = 0;
     }
     // 终止查找位置
     if (is_null($end)) {

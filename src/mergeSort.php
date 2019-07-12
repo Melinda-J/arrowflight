@@ -1,6 +1,6 @@
 <?php
 /**
- * 归并排序（递归法）
+ * 归并排序（递归法）.
  *
  * @param array $arr 待排序的数组
  */
@@ -39,7 +39,7 @@ function mergeSortRecursive(&$arr)
 }
 
 /**
- * 归并排序（迭代法）
+ * 归并排序（迭代法）.
  *
  * @param array $arr 待排序的数组
  */

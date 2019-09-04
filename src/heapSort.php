@@ -6,11 +6,9 @@
  */
 function heapSort(&$arr)
 {
-    $size = count($arr);
-    for ($i = $size - 1; $i > 0; --$i) {
+    for ($size = count($arr), $i = $size - 1; $i > 0; --$i) {
         // 堆中最后一个父元素的索引
-        $lastParent = intval($size / 2) - 1;
-        for ($j = $lastParent; $j >= 0; --$j) {
+        for ($lastParent = intval($size / 2) - 1, $j = $lastParent; $j >= 0; --$j) {
             // 左侧子元素索引
             $leftChild = 2 * $j + 1;
             // 右侧子元素索引

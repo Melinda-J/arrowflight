@@ -11,8 +11,7 @@ function mergeSortRecursive(&$arr)
         return;
     }
     // 将数组平均拆分成两组
-    $middle = $size >> 1;
-    $leftArr = array_slice($arr, 0, $middle);
+    $leftArr = array_slice($arr, 0, $middle = $size >> 1);
     $rightArr = array_slice($arr, $middle);
     call_user_func_array(__FUNCTION__, [&$leftArr]);
     call_user_func_array(__FUNCTION__, [&$rightArr]);
@@ -22,11 +21,7 @@ function mergeSortRecursive(&$arr)
     $tmp = [];
     // 从两数组首位开始比较数组元素大小，较小元素存入$tmp
     while ($i < $leftArrSize && $j < $rightArrSize) {
-        if ($leftArr[$i] < $rightArr[$j]) {
-            $tmp = $leftArr[$i++];
-        } else {
-            $tmp[] = $rightArr[$j++];
-        }
+        $tmp[] = $leftArr[$i] < $rightArr[$j] ? $leftArr[$i++] : $rightArr[$j++];
     }
     // 剩余元素直接存入$tmp
     while ($i < $leftArrSize) {

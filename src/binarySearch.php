@@ -11,21 +11,19 @@
  */
 function divideSearch($search, $arr, $start = null, $end = null)
 {
-    $size = count($arr);
     // 起始查找位置
     if (is_null($start)) {
         $start = 0;
     }
     // 终止查找位置
     if (is_null($end)) {
-        $end = $size - 1;
+        $end = count($arr) - 1;
     }
     $index = -1;
     while ($end >= $start) {
         // 取数组中间元素索引
-        $middle = intval(($start + $end) / 2);
         // 若目标值等于中间元素，返回中间元素索引
-        if ($search == $arr[$middle]) {
+        if ($search == $arr[$middle = intval(($start + $end) / 2)]) {
             $index = $middle;
             break;
         }
@@ -63,10 +61,8 @@ function halfSearch($search, $arr, $start = null, $end = null)
     if ($end < $start) {
         return -1;
     }
-    // 中间元素索引
-    $middle = intval(($start + $end) / 2);
     // 若目标值等于中间元素，返回中间元素索引
-    if ($search == $arr[$middle]) {
+    if ($search == $arr[$middle = intval(($start + $end) / 2)]) {
         return $middle;
     }
     // 若目标值大于中间元素，向后查找|若目标值小于中间元素，向前查找

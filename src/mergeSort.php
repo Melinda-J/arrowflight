@@ -40,9 +40,7 @@ function mergeSortRecursive(&$arr)
  */
 function mergeSort(&$arr)
 {
-    $size = count($arr);
-    $tmp = [];
-    for ($step = 1; $step < $size; $step += $step) {
+    for ($size = count($arr), $tmp = [], $step = 1; $step < $size; $step += $step) {
         // 对数组进行分组，每组长度为$step
         // 相邻分组，两两一对进行排序，合并
         for ($start = 0, $k = 0; $start < $size; $start += 2 * $step) {
